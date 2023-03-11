@@ -1,0 +1,18 @@
+<h2>{{ authors.length }} Authors</h2>
+<ul>
+  <li *ngFor="let author of authors">{{ author }}</li>
+</ul>
+<hr />
+<h1>{{ course.title | uppercase }}</h1>
+<ul>
+  <li>{{ course.students | number }}</li>
+  <li>{{ course.rating | number : "1.2-2" }}</li>
+  <li>{{ course.price | currency : "EUR" }}</li>
+  <li>{{ course.releaseDate | date : "d.MM.YYYY" }}</li>
+</ul>
+
+<hr />
+<h3>Long Text</h3>
+<p>{{ longText | summary : 70 }}</p>
+
+<hr />

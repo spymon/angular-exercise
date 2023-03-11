@@ -1,0 +1,15 @@
+.bi-heart-fill {
+  color: #ccc;
+  margin-right: 0.3rem;
+  cursor: pointer;
+}
+
+.isActive {
+  color: deeppink;
+}
+
+span {
+  font-size: 1.2rem;
+  pointer-events: none;
+  user-select: none;
+}

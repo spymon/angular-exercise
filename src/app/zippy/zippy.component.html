@@ -1,0 +1,17 @@
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <button
+      class="accordion-button"
+      [class.collapsed]="!isActive"
+      type="button"
+      (click)="onClick()"
+    >
+      {{ title }}
+    </button>
+    <div class="accordion-collapse collapse" [class.show]="isActive">
+      <div class="accordion-body">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>
