@@ -32,6 +32,5 @@ export class SignupFormComponent {
 
   signup() {
     this.form.setErrors({ invalidSignup: true });
-    console.log(this.form);
   }
 }

@@ -1,4 +1,7 @@
-<div class="my-5">
+<wrapper
+  title="Posts"
+  subtitle="Using services / httpClient / App Errors / ErrorHandler"
+>
   <label for="newPost">New post: </label>
   <input
     type="text"
@@ -8,14 +11,36 @@
     (keyup.enter)="createPost(post)"
   />
 
-  <div *ngFor="let post of posts" class="card my-2">
-    <h5 class="card-header">{{ post.title }}</h5>
-    <div class="card-body">
-      <p class="card-text">{{ post.body }}</p>
-      <button (click)="updatePost(post)" class="btn btn-primary">update</button>
-      <button (click)="deletePost(post)" class="btn btn-danger ms-2">
-        Delete
-      </button>
+  <div class="btn-group my-3">
+    <button
+      (click)="showPosts = true"
+      class="btn btn-primary"
+      [class.active]="showPosts"
+      aria-current="page"
+    >
+      Show Posts
+    </button>
+    <button
+      (click)="showPosts = false"
+      class="btn btn-primary"
+      [class.active]="!showPosts"
+    >
+      Hide Posts
+    </button>
+  </div>
+
+  <div *ngIf="showPosts">
+    <div *ngFor="let post of posts" class="card my-2">
+      <h5 class="card-header">{{ post.title }}</h5>
+      <div class="card-body">
+        <p class="card-text">{{ post.body }}</p>
+        <button (click)="updatePost(post)" class="btn btn-primary">
+          update
+        </button>
+        <button (click)="deletePost(post)" class="btn btn-danger ms-2">
+          Delete
+        </button>
+      </div>
     </div>
   </div>
-</div>
+</wrapper>

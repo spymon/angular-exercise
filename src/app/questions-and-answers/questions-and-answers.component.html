@@ -1,0 +1,119 @@
+<div class="row">
+  <div class="col-md">
+    <wrapper title="Panel Input" subtitle="Two Way Binding [(ngModel)]">
+      <form #fPanel="ngForm" (ngSubmit)="addPanel(fPanel)">
+        <div class="my-2">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            required
+            ngModel
+            name="name"
+            class="form-control"
+            id="name"
+          />
+        </div>
+
+        <div class="my-2">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            email
+            required
+            ngModel
+            name="email"
+            class="form-control"
+            id="email"
+          />
+        </div>
+
+        <div class="my-2">
+          <label for="phone">Phone:</label>
+          <input
+            type="phone"
+            required
+            ngModel
+            name="phone"
+            class="form-control"
+            id="phone"
+          />
+        </div>
+        <button class="btn btn-primary" [disabled]="fPanel.invalid">
+          Submit
+        </button>
+      </form>
+      <wrapper
+        title="Reusable Component Panel"
+        subtitle=" With Many Separated With Select Tag ng-content/ng-container"
+      >
+        <div *ngIf="panels.length; else helperMessage">
+          <div class="my-2" *ngFor="let panel of panels">
+            <bootstrap-panel>
+              <ng-container class="header">{{ panel.name }}</ng-container>
+              <ng-container class="body">{{ panel.email }}</ng-container>
+              <span class="footer">
+                <h6 class="d-inline-block text-secondary1">
+                  {{ panel.phone }}
+                </h6>
+              </span>
+            </bootstrap-panel>
+          </div>
+        </div>
+      </wrapper>
+    </wrapper>
+  </div>
+
+  <div class="col-md">
+    <wrapper title="Zippy Input" subtitle="Template Driven Form">
+      <form #fZippy="ngForm" (ngSubmit)="addQuestion(fZippy)">
+        <div class="my-2">
+          <label for="question">Question:</label>
+          <input
+            type="text"
+            required
+            ngModel
+            name="question"
+            class="form-control"
+            id="question"
+          />
+        </div>
+
+        <div class="my-2">
+          <label for="answer">Answer:</label>
+          <textarea
+            type="text"
+            required
+            ngModel
+            name="answer"
+            class="form-control"
+            id="answer"
+            rows="4"
+          ></textarea>
+        </div>
+        <button class="btn btn-primary" [disabled]="fZippy.invalid">
+          Submit
+        </button>
+      </form>
+      <wrapper
+        title="Reusable Component Zippy"
+        subtitle="With one ng-content/ng-container"
+      >
+        <div *ngIf="questions.length; else helperMessage">
+          <div *ngFor="let questionObj of questions" class="my-2">
+            <zippy title="{{ questionObj.question }}">
+              {{ questionObj.answer }}
+            </zippy>
+          </div>
+        </div>
+      </wrapper>
+    </wrapper>
+  </div>
+</div>
+
+<!-- Helper message -->
+<ng-template #helperMessage>
+  <h4 class="text-info">
+    Enter values to the above input fields
+    <i class="bi-arrow-up-circle"></i>
+  </h4>
+</ng-template>

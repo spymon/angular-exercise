@@ -1,6 +1,7 @@
 <i
   (click)="onClick()"
   class="bi"
+  [class.text-warning]="isSelected"
   [class.bi-star-fill]="isSelected"
   [class.bi-star]="!isSelected"
 ></i>

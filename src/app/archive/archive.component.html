@@ -1,0 +1,16 @@
+<wrapper
+  title="Archive"
+  subtitle="Routing, Programmatic Navigation, ParamsMap, QueryParamsMap"
+>
+  <div class="list-group list-group-flush">
+    <a
+      *ngFor="let archive of archives"
+      class="list-group-item list-group-item-action text-info"
+      aria-current="true"
+      [routerLink]="['/archive', archive.year, archive.month]"
+    >
+      {{ archive.year + "/" + archive.month }}
+      <i class="bi-chevron-right float-end"></i>
+    </a>
+  </div>
+</wrapper>

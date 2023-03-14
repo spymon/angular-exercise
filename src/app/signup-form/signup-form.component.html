@@ -1,68 +1,73 @@
-<form [formGroup]="form" (ngSubmit)="signup()">
-  <!-- Validation form level error -->
-  <div *ngIf="form.errors" class="alert alert-danger">
-    <div *ngIf="form.errors?.['invalidSignup']">
-      The username or password is invalid.
+<wrapper
+  title="Sign Up Form"
+  subtitle="New FormGroup / Custom Validators / Dynamic Error Messages"
+>
+  <form [formGroup]="form" (ngSubmit)="signup()">
+    <!-- Validation form level error -->
+    <div *ngIf="form.errors" class="alert alert-danger">
+      <div *ngIf="form.errors?.['invalidSignup']">
+        The username or password is invalid.
+      </div>
     </div>
-  </div>
-  <!-- Validation form level error end -->
+    <!-- Validation form level error end -->
 
-  <div formGroupName="account">
-    <label for="username">Username</label>
-    <input
-      formControlName="username"
-      id="username"
-      type="text"
-      class="form-control"
-    />
-    <div
-      *ngIf="username?.pending"
-      class="spinner-border text-light d-block"
-      role="status"
-    >
-      <span class="visually-hidden">Loading...</span>
-    </div>
-    <div
-      *ngIf="username?.touched && username?.invalid"
-      class="alert alert-danger"
-    >
-      <div *ngIf="username?.errors?.['required']">
-        Username field is required.
+    <div formGroupName="account">
+      <label for="username">Username</label>
+      <input
+        formControlName="username"
+        id="username"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="username?.pending"
+        class="spinner-border text-light d-block"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
       </div>
-      <div *ngIf="username?.errors?.['minlength']">
-        Username should be at least
-        {{username?.errors?.['minlength'].requiredLength}} characters.
+      <div
+        *ngIf="username?.touched && username?.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="username?.errors?.['required']">
+          Username field is required.
+        </div>
+        <div *ngIf="username?.errors?.['minlength']">
+          Username should be at least
+          {{username?.errors?.['minlength'].requiredLength}} characters.
+        </div>
+        <div *ngIf="username?.errors?.['cannotContainSpace']">
+          Username should not contain space.
+        </div>
+        <div *ngIf="username?.errors?.['shouldBeUnique']">
+          Username is already taken.
+        </div>
       </div>
-      <div *ngIf="username?.errors?.['cannotContainSpace']">
-        Username should not contain space.
-      </div>
-      <div *ngIf="username?.errors?.['shouldBeUnique']">
-        Username is already taken.
+
+      <label for="password">Password</label>
+      <input
+        formControlName="password"
+        id="password"
+        type="password"
+        class="form-control mb-3"
+      />
+      <div
+        *ngIf="password?.touched && password?.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="password?.errors?.['required']">
+          Password field is required.
+        </div>
       </div>
     </div>
 
-    <label for="password">Password</label>
-    <input
-      formControlName="password"
-      id="password"
-      type="password"
-      class="form-control mb-3"
-    />
-    <div
-      *ngIf="password?.touched && password?.invalid"
-      class="alert alert-danger"
+    <button
+      class="btn btn-primary"
+      type="submit"
+      [disabled]="form.invalid || username?.pending"
     >
-      <div *ngIf="password?.errors?.['required']">
-        Password field is required.
-      </div>
-    </div>
-  </div>
-
-  <button
-    class="btn btn-primary"
-    type="submit"
-    [disabled]="form.invalid || username?.pending"
-  >
-    Sign Up
-  </button>
-</form>
+      Sign Up
+    </button>
+  </form>
+</wrapper>

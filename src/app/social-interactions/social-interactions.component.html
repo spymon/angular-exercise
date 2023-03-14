@@ -1,0 +1,28 @@
+<wrapper
+  title="Favorite"
+  subtitle="Reusable Components using @input() / @output() Decorators"
+>
+  <div *ngFor="let post of posts">
+    <span>{{ post.title }} </span>
+    <favorite
+      [is-favorite]="post.isFavorite"
+      [post]="post"
+      (toggle)="Like($event)"
+    ></favorite>
+  </div>
+</wrapper>
+
+<wrapper
+  title="Like"
+  subtitle=" Dynamic Reusable Component With @input() Decorators"
+>
+  <ul class="list-group">
+    <li *ngFor="let post of twitterPosts" class="list-group-item">
+      <twitter-like
+        [isActive]="post.isLiked"
+        [likesCount]="post.likesCount"
+      ></twitter-like>
+      <p>{{ post.title }}</p>
+    </li>
+  </ul>
+</wrapper>

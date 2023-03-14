@@ -1,11 +1,14 @@
 <ul class="list-group">
   <li class="list-group-item">
-    <ng-content select=".header"></ng-content>
-  </li>
-  <li class="list-group-item active">
-    <ng-content select=".body"></ng-content>
+    <i class="me-2 bi-square"></i>
+    <ng-content class="ps-2" select=".header"></ng-content>
   </li>
   <li class="list-group-item">
-    <ng-content select=".footer"></ng-content>
+    <i class="me-2 bi bi-triangle"></i>
+    <ng-content class="ps-2" select=".body"></ng-content>
+  </li>
+  <li class="list-group-item">
+    <i class="me-2 bi-heart"></i>
+    <ng-content class="ps-2" select=".footer"></ng-content>
   </li>
 </ul>

@@ -1,23 +1,25 @@
-<h2>Followers</h2>
-
-<ul *ngIf="followers" class="list-group">
-  <li *ngFor="let follower of followers.slice(0, 3)" class="list-group-item">
-    <div class="d-flex align-items-center">
-      <div class="flex-shrink-0">
-        <img
-          [src]="follower.avatar_url"
-          alt="{{ follower.login }}"
-          class="img-thumbnail rounded-circle shadow-sm"
-          width="100"
-          height="100"
-        />
+<wrapper title="Github Followers" subtitle="Using services / httpClient">
+  <ul *ngIf="followers" class="list-group">
+    <li *ngFor="let follower of followers" class="list-group-item">
+      <div class="d-flex align-items-center">
+        <div class="flex-shrink-0">
+          <img
+            [src]="follower.avatar_url"
+            alt="{{ follower.login }}"
+            class="img-thumbnail rounded-circle shadow-sm"
+            width="100"
+            height="100"
+          />
+        </div>
+        <div class="flex-grow-1 ms-3">
+          <h5>{{ follower.login }}</h5>
+          <a
+            class="btn btn-sm btn-primary"
+            [routerLink]="['/followers', follower.id, follower.login]"
+            >Github Profile</a
+          >
+        </div>
       </div>
-      <div class="flex-grow-1 ms-3">
-        <h5>{{ follower.login }}</h5>
-        <a class="card-link" href="{{ follower.html_url }}" target="_blank">{{
-          follower.html_url
-        }}</a>
-      </div>
-    </div>
-  </li>
-</ul>
+    </li>
+  </ul>
+</wrapper>

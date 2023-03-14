@@ -7,7 +7,6 @@ import { NewCourseFormComponent } from './new-course-form/new-course-form.compon
 import { FavoriteComponent } from './favorite/favorite.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GithubFollowersComponent } from './github-followers/github-followers.component';
-import { CourseComponent } from './course/course.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { AppErrorHandler } from './common/app-error-handler';
 import { SummaryPipe } from './pipes/summary.pipe';
@@ -23,6 +22,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostsComponent } from './posts/posts.component';
 import { TitleCasePipe } from './pipes/title-case.pipe';
 import { TwitterLikeComponent } from './twitter-like/twitter-like.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { GithubProfileComponent } from './github-profile/github-profile.component';
+import { HomeComponent } from './home/home.component';
+import { WrapperComponent } from './wrapper/wrapper.component';
+import { ArchivePageComponent } from './archive-page/archive-page.component';
+import { ArchiveComponent } from './archive/archive.component';
+import { SocialInteractionsComponent } from './social-interactions/social-interactions.component';
+import { QuestionsAndAnswersComponent } from './questions-and-answers/questions-and-answers.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +40,6 @@ import { TwitterLikeComponent } from './twitter-like/twitter-like.component';
     SummaryPipe,
     ChangePasswordFormComponent,
     ContactFormComponent,
-    CourseComponent,
     GithubFollowersComponent,
     FavoriteComponent,
     NewCourseFormComponent,
@@ -43,6 +51,16 @@ import { TwitterLikeComponent } from './twitter-like/twitter-like.component';
     TitleCasePipe,
     TwitterLikeComponent,
     ZippyComponent,
+    NavbarComponent,
+    NotFoundComponent,
+    GithubProfileComponent,
+    HomeComponent,
+    WrapperComponent,
+    ArchivePageComponent,
+    ArchiveComponent,
+    SocialInteractionsComponent,
+    QuestionsAndAnswersComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

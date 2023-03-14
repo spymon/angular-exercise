@@ -23,7 +23,6 @@ export class NewCourseFormComponent {
   addTopic(topic: HTMLInputElement) {
     this.topics.push(new FormControl(topic.value));
     topic.value = '';
-    console.log(this.topics);
   }
 
   removeTopic(topic: AbstractControl) {

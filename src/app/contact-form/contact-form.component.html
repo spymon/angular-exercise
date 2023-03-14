@@ -1,49 +1,53 @@
-<form #f="ngForm" (ngSubmit)="submit(f)">
-  <div class="form-group">
-    <label for="firstName">First Name</label>
-    <input
-      required
-      minlength="3"
-      pattern="banana"
-      ngModel
-      name="firstName"
-      #firstName="ngModel"
-      placeholder="psst.. pattern is banana"
-      id="firstName"
-      type="text"
-      class="form-control"
-    />
-    <div
-      class="alert alert-danger"
-      *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
-    >
-      <div *ngIf="firstName.errors?.['required']">First Name is required.</div>
+<wrapper title="Contact Form" subtitle="Template-driven Forms">
+  <form #f="ngForm" (ngSubmit)="submit(f)">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input
+        required
+        minlength="3"
+        pattern="banana"
+        ngModel
+        name="firstName"
+        #firstName="ngModel"
+        placeholder="psst.. pattern is banana"
+        id="firstName"
+        type="text"
+        class="form-control"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+      >
+        <div *ngIf="firstName.errors?.['required']">
+          First Name is required.
+        </div>
 
-      <div *ngIf="firstName.errors?.['minlength']">
-        First name should be minimum
-        {{firstName.errors?.['minlength'].requiredLength
-        }}
-        characters. character count:
-        {{firstName.errors?.['minlength'].actualLength
-        }}
-      </div>
-      <div *ngIf="firstName.errors?.['maxlength']">
-        First name should be minimum 20 characters.
-      </div>
-      <div *ngIf="firstName.errors?.['pattern']">
-        First name pattern does not match.
+        <div *ngIf="firstName.errors?.['minlength']">
+          First name should be minimum
+          {{firstName.errors?.['minlength'].requiredLength
+          }}
+          characters. character count:
+          {{firstName.errors?.['minlength'].actualLength
+          }}
+        </div>
+        <div *ngIf="firstName.errors?.['maxlength']">
+          First name should be minimum 20 characters.
+        </div>
+        <div *ngIf="firstName.errors?.['pattern']">
+          First name pattern does not match.
+        </div>
       </div>
     </div>
-  </div>
-  <div class="form-group mt-3">
-    <label for="comment">Comment</label>
-    <textarea
-      ngModel
-      required
-      name="comment"
-      id="comment"
-      class="form-control mb-3"
-    ></textarea>
-    <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
-  </div>
-</form>
+    <div class="form-group mt-3">
+      <label for="comment">Comment</label>
+      <textarea
+        ngModel
+        required
+        name="comment"
+        id="comment"
+        class="form-control mb-3"
+      ></textarea>
+      <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+    </div>
+  </form>
+</wrapper>

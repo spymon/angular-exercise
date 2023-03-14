@@ -1,0 +1,6 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  min-height: 100%;
+}

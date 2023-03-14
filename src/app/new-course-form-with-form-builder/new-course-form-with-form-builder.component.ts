@@ -32,8 +32,6 @@ export class NewCourseFormWithFormBuilderComponent {
   }
 
   addTopic(topic: HTMLInputElement) {
-    console.log(topic.value);
-
     this.topics.push(new FormControl(topic.value));
     topic.value = '';
   }

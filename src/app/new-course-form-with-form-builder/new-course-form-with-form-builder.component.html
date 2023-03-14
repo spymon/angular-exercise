@@ -1,34 +1,37 @@
-<form [formGroup]="form">
-  <label for="name">Name</label>
-  <input
-    formControlName="name"
-    id="name"
-    type="text"
-    class="form-control my-2"
-  />
-  <div formGroupName="contact">
-    <label for="email">Email</label>
-    <input formControlName="email" type="text" class="form-control my-2" />
-    <br />
-    <label for="phone">Phone</label>
-    <input formControlName="phone" type="text" class="form-control my-2" />
-  </div>
+<wrapper title="New Course Form" subtitle="Using FormGroup / FormArray">
+  <form [formGroup]="form">
+    <label for="name">Name</label>
+    <input
+      formControlName="name"
+      id="name"
+      type="text"
+      class="form-control my-2"
+    />
+    <div formGroupName="contact">
+      <label for="email">Email</label>
+      <input formControlName="email" type="text" class="form-control my-2" />
+      <br />
+      <label for="phone">Phone</label>
+      <input formControlName="phone" type="text" class="form-control my-2" />
+    </div>
 
-  <label for="topics">Topics</label>
-  <input
-    formArrayName="topics"
-    id="topics"
-    (keyup.enter)="addTopic(topicsInput)"
-    #topicsInput
-    type="text"
-    class="form-control my-2"
-  />
-  <ul>
-    <li
-      *ngFor="let topic of topics.controls; let i = index"
-      (click)="removeTopic(i)"
-    >
-      {{ topic.value }}
-    </li>
-  </ul>
-</form>
+    <label for="topics">Topics</label>
+    <input
+      formArrayName="topics"
+      id="topics"
+      (keyup.enter)="addTopic(topicsInput)"
+      #topicsInput
+      type="text"
+      class="form-control my-2"
+    />
+    <ul class="list-group mt-3">
+      <li
+        *ngFor="let topic of topics.controls; let i = index"
+        (click)="removeTopic(i)"
+        class="list-group-item pointer"
+      >
+        {{ topic.value }}
+      </li>
+    </ul>
+  </form>
+</wrapper>
