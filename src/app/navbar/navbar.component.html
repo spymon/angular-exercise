@@ -2,10 +2,11 @@
   <div class="container">
     <button
       class="navbar-toggler"
+      (click)="isCollapsed = !isCollapsed"
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#navbarTogglerDemo03"
-      aria-controls="navbarTogglerDemo03"
+      data-bs-target="#navbarToggler"
+      aria-controls="navbarToggler"
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
@@ -14,7 +15,11 @@
     <a routerLink="/" class="navbar-brand text-success fst-italic fw-light fs-3"
       >Angular Course App</a
     >
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <div
+      class="collapse navbar-collapse text-center text-lg-start"
+      id="navbarToggler"
+      [ngbCollapse]="isCollapsed"
+    >
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li routerLinkActive="active" class="nav-item">
           <a
@@ -25,23 +30,19 @@
             >Followers</a
           >
         </li>
-        <li routerLinkActive="active" class="nav-item">
+        <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/posts">Posts</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/authors" routerLinkActive="active"
-            >Authors</a
-          >
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/authors">Authors</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/archive" routerLinkActive="active"
-            >Archive</a
-          >
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/archive">Archive</a>
         </li>
         <li class="nav-item dropdown" ngbDropdown>
           <a class="nav-link dropdown-toggle" ngbDropdownToggle> Forms </a>
           <ul class="dropdown-menu" ngbDropdownMenu>
-            <li>
+            <li routerLinkActive="active">
               <a
                 class="dropdown-item"
                 ngbDropdownItem
@@ -49,12 +50,12 @@
                 >Change Password</a
               >
             </li>
-            <li>
+            <li routerLinkActive="active">
               <a class="dropdown-item" ngbDropdownItem routerLink="/new-course"
                 >New Course</a
               >
             </li>
-            <li>
+            <li routerLinkActive="active">
               <a
                 class="dropdown-item"
                 ngbDropdownItem
@@ -62,30 +63,21 @@
                 >New Course with FormBuild</a
               >
             </li>
-            <li>
+            <li routerLinkActive="active">
               <a class="dropdown-item" ngbDropdownItem routerLink="/contact"
                 >Contact</a
               >
             </li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/social" routerLinkActive="active"
-            >Social Interactions</a
-          >
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/social">Social Interactions</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/reusable" routerLinkActive="active"
-            >Panel & Zippy</a
-          >
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/reusable">Panel & Zippy</a>
         </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            routerLink="/custom-pipe"
-            routerLinkActive="active"
-            >Title Case</a
-          >
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/custom-pipe">Title Case</a>
         </li>
       </ul>
     </div>
